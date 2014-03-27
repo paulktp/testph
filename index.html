@@ -87,10 +87,30 @@
 			
 			$(document).ready(function() {
 				$("form").submit(function(){
-					$.mobile.loading( 'show' )
-					setTimeout(function() {
-						  $.mobile.loading( 'hide' )
-					}, 5000);
+
+					
+					$.ajax({url: "http://www.ktp.net/testph.php",
+						data: {action : "login"},
+						dataType: "jsonp",
+						jsonpCallback: 'successCallback',
+						async: true,
+						beforeSend: function() {
+							$.mobile.loading( 'show' )
+						},
+						complete: function() {
+							$.mobile.loading( 'hide' )
+						},
+						success: function (result) {
+							alert(result);
+						},
+						error: function (request,error) {
+							alert(error);
+						}, 
+					   successCallback:function(){
+
+						}
+					});
+					
 					return false;
 				});
 			});
