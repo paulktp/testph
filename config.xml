@@ -108,4 +108,7 @@ Otherwise, you can specify specific domains:
 <access origin="http://phonegap.com" subdomains="true" /> - same as above, but including subdomains, such as http://build.phonegap.com/
 -->
 
+<gap:platform name="android" />
+
+
 </widget>
