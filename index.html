@@ -92,9 +92,6 @@
 					var formData = $("#loginForm").serialize();
 					$.ajax({url: "http://www.ktp.net/testph.php",
 						data: formData,
-						dataType: "jsonp",
-						jsonpCallback: 'successCallback',
-						async: true,
 						beforeSend: function() {
 							$.mobile.loading( 'show' )
 						},
@@ -106,9 +103,6 @@
 						},
 						error: function (request,error) {
 							alert(error);
-						}, 
-					   successCallback:function(){
-
 						}
 					});
 					
