@@ -62,9 +62,10 @@
   
   
   <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
-    <form>
+    <form id="loginForm">
         <div style="padding:10px 20px;">
             <h3>Please sign in</h3>
+			<input type="hidden" name="action" value="login"/>
             <label for="un" class="ui-hidden-accessible">Username:</label>
             <input name="user" id="un" value="" placeholder="username" data-theme="a" type="text">
             <label for="pw" class="ui-hidden-accessible">Password:</label>
@@ -88,9 +89,9 @@
 			$(document).ready(function() {
 				$("form").submit(function(){
 
-					
+					var formData = $("#loginForm").serialize();
 					$.ajax({url: "http://www.ktp.net/testph.php",
-						data: {action : "login"},
+						data: formData,
 						dataType: "jsonp",
 						jsonpCallback: 'successCallback',
 						async: true,
