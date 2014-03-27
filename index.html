@@ -84,6 +84,17 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+			
+			$(document).ready(function() {
+				$("form").submit(function(){
+					$.mobile.loading( 'show' )
+					setTimeout(function() {
+						  $.mobile.loading( 'hide' )
+					}, 5000);
+					return false;
+				});
+			});
+			
         </script>
     </body>
 </html>
